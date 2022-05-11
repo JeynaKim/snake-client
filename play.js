@@ -7,9 +7,8 @@ const connect = function () {
     port: 50541
   });
   
-  conn.on("connect", (data) => {
-    conn.write("Hello!");
-    console.log("connected to server");
+  conn.on("connect", (client) => {
+    conn.write("Name: JYK")
   });
 
   conn.on("data", (data) => {
@@ -24,3 +23,5 @@ const connect = function () {
 
 console.log("Connecting ...");
 connect();
+
+module.exports = connect();
