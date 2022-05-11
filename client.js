@@ -1,5 +1,4 @@
 const net = require("net");
-const connect = require("./play.js")
 
 // establishes a connection with the game server
 const connect = function () {
@@ -8,7 +7,7 @@ const connect = function () {
     port: 50541
   });
 
-  conn.on("connect", (data) => {
+    conn.on("connect", () => {
     console.log("Successfully connected to game server");
   });
   
@@ -16,11 +15,13 @@ const connect = function () {
     console.log(data)
   });
 
+  conn.write("Name: JYK");
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
   return conn;
 };
 
-console.log("Connecting ...");
-connect();
+
+module.exports = connect;
